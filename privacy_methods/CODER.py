@@ -1,11 +1,3 @@
-"""
--*- coding: utf-8 -*-
-
-@Author : 季俊豪
-@Time : 2024/6/10 上午11:06
-@Software: PyCharm 
-@File : CODER.py
-"""
 import numpy as np
 import math
 from scipy.special import gammaln,gamma
