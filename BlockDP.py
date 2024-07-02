@@ -1,11 +1,3 @@
-"""
--*- coding: utf-8 -*-
-
-@Author : 季俊豪
-@Time : 2024/4/23 下午4:36
-@Software: PyCharm 
-@File : LPL.py
-"""
 import numpy as np
 from PIL import Image, ImageDraw
 from tqdm import trange
@@ -33,18 +25,6 @@ def problib(data, r, sensitivity, epsilon=1.0):
 
 def laplace(x,sensitivity,epsilon=1.0):
     return x + int(np.random.laplace(loc=0, scale=np.array(sensitivity / epsilon), size=x.shape))
-
-# Function to add grid borders to an image
-# Function to add grid borders to an image without occupying pixels
-def add_grid_borders(image, grid_size=32, border_color=(255, 255, 0), border_width=1):
-    draw = ImageDraw.Draw(image)
-    width, height = image.size
-
-    for x in range(0, width, grid_size):
-        draw.line([(x, 0), (x, height)], fill=border_color, width=border_width)
-    for y in range(0, height, grid_size):
-        draw.line([(0, y), (width, y)], fill=border_color, width=border_width)
-    return image
 
 if __name__ == '__main__':
     block = 16
