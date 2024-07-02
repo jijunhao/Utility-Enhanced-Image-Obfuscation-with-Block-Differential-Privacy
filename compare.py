@@ -1,14 +1,13 @@
 import os
 import cv2
-from privacy_methods import pixdp,CODER
+from privacy_methods import pixdp,svd,CODER
 from tqdm import tqdm
 from PIL import Image
 import numpy as np
 
-#image_dataset_folder = '/home/jijunhao/DMDP/datasets/image2'
-image_dataset_folder = '/home/jijunhao/DPINDEX/dataset/img'
+image_dataset_folder = './dataset/lfw'
 
-output_folder = './output/helen/pixdp_epsilon_01/'
+output_folder = './output/lfw/pixdp_epsilon_01/'
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
@@ -18,7 +17,6 @@ image_dataset_names = os.listdir(image_dataset_folder)
 for image_data in tqdm(image_dataset_names):
     # 构建图像文件的完整路径
     file_path = os.path.join(image_dataset_folder, image_data)
-
 
     blur_dp, _, _ = pixdp.pixelation(file_path, m=1, epsilon=0.1, b=8, delta_p=255)
 
